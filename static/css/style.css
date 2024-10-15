@@ -1,0 +1,144 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e3f2fd;
+    color: #333;
+    padding: 20px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .weather-card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .weather-card h1 {
+    font-size: 2.5rem;
+    color: #0277bd;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .weather-card p {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+  }
+  
+  #weather-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  #weather-form input {
+    width: 80%;
+    padding: 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  #weather-form input:focus {
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0,123,255,0.5);
+  }
+  
+  #weather-form button {
+    padding: 12px 30px;
+    background-color: #0277bd;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #weather-form button:hover {
+    background-color: #01579b;
+  }
+  
+  .weather-result {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .weather-result h2 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+    color: #0277bd;
+  }
+  
+  .weather-result p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #616161;
+  }
+  
+  .weather-result .temp {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #0277bd;
+  }
+  
+  .weather-result .humidity,
+  .weather-result .wind-speed {
+    font-size: 1.1rem;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+  
+  /* Responsive styling for mobile devices */
+  @media (max-width: 600px) {
+    .weather-card {
+      max-width: 100%;
+      padding: 20px;
+    }
+  
+    #weather-form input {
+      width: 65%;
+      margin-bottom: 15px;
+    }
+  
+    #weather-form button {
+      width: 30%;
+      margin-left: 5px;
+    }
+  
+    .weather-result h2 {
+      font-size: 1.5rem;
+    }
+  
+    .weather-result .temp {
+      font-size: 2rem;
+    }
+  }
+  
