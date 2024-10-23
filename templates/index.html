@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather App</title>
-  <link rel="stylesheet" href="static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Weather Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-  <div class="container">
-    <div class="weather-card">
-      <h1>Weather App</h1>
-      <p>Enter a city to get the current weather</p>
-      
-      <!-- City Input Form -->
-      <form id="weather-form">
-        <input type="text" id="city" placeholder="Enter city..." required>
-        <button type="submit">Get Weather</button>
-      </form>
-      
-      <!-- Weather Display -->
-      <div id="weather-result" class="weather-result">
-        <h2 id="city-name"></h2>
-        <p id="temp"></p>
-        <p id="humidity"></p>
-        <p id="wind-speed"></p>
-        <p id="error-message" class="error-message"></p>
-      </div>
+    <div class="container">
+        <div class="weather-dashboard glass-effect">
+            <h1 class="city-name">Weather in <span id="city">--</span>, <span id="country">--</span></h1>
+            <div class="weather-info">
+                <div class="temp-main">
+                    <h2 id="temp">--°C</h2>
+                    <p id="description">--</p>
+                    <img id="weather-icon" src="/static/images/sun.png" alt="Weather Icon" />
+                </div>
+                <div class="additional-info">
+                    <p><strong>Feels Like:</strong> <span id="feels-like">--°C</span></p>
+                    <p><strong>Min/Max:</strong> <span id="temp-min">--°C</span> / <span id="temp-max">--°C</span></p>
+                    <p><strong>Humidity:</strong> <span id="humidity">--%</span></p>
+                    <p><strong>Wind:</strong> <span id="wind-speed">-- m/s</span></p>
+                    <p><strong>Cloud Coverage:</strong> <span id="cloud-coverage">--%</span></p>
+                </div>
+            </div>
+            <div class="error-message" id="error-message"></div>
+            <div class="input-box">
+                <input type="text" id="city-input" placeholder="Enter city name" />
+                <button id="fetch-weather"> 
+                    <img src="https://img.icons8.com/ios-filled/50/000000/search.png" id="search-icon" alt="Get Weather" />
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <script src="static/js/script.js"></script>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>

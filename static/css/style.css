@@ -1,144 +1,177 @@
-/* Reset and basic styles */
+:root {
+  --primary-color: #ff4757; /* Vibrant Red */
+  --secondary-color: #1e90ff; /* Bright Blue */
+  --background-color: rgba(30, 30, 30, 0.9); /* Slightly more opaque background for better visibility */
+  --text-color: #ffffff; /* Pure white for text */
+  --text-color-light: #f0f0f0; /* Light gray for secondary text */
+  --border-color: rgba(255, 255, 255, 0.2); /* Soft white for borders */
+  --error-color: #ff6b81; /* Soft red for error messages */
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-dashboard {
+  background: var(--background-color);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+}
+
+.city-name {
+  font-size: 28px;
+  color: var(--text-color);
+  margin-bottom: 15px;
+  font-weight: 600;
+  text-transform: uppercase; /* For a more modern feel */
+}
+
+.weather-info {
+  margin-bottom: 20px;
+}
+
+.temp-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.temp-main h2 {
+  font-size: 70px;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.temp-main p {
+  font-size: 20px;
+  color: var(--text-color-light);
+  margin-top: 10px;
+}
+
+.temp-main img {
+  width: 80px; /* Slightly larger for emphasis */
+  height: 80px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.additional-info {
+  border-top: 1px solid var(--border-color);
+  padding-top: 15px;
+  color: var(--text-color-light);
+}
+
+.additional-info p {
+  font-size: 14px; /* Slightly larger for better readability */
+  margin-bottom: 8px;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+input[type="text"] {
+  width: 70%;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-background-color); /* Ensure contrast */
+  color: var(--text-color); /* Text color should contrast with background */
+  font-size: 16px;
+  margin-right: 10px;
+  transition: box-shadow 0.3s, width 0.3s;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--primary-color);
+  width: 75%;
+}
+
+button {
+  padding: 12px 15px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color)); /* Gradient effect */
+  background-size: 200%; /* Ensures gradient covers the full width */
+  border-radius: 25px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-position 0.5s ease, transform 0.2s; /* Smooth background animation */
+}
+
+button:hover {
+  background-position: 100%; /* Moves the gradient to create flow effect */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+button img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 15px;
+  margin-top: 15px;
+  opacity: 0.8; /* Slightly more visible */
+  transition: opacity 0.3s;
+}
+
+.show-error {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .temp-main h2 {
+    font-size: 50px;
   }
-  
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e3f2fd;
-    color: #333;
-    padding: 20px;
+
+  .additional-info p {
+    font-size: 12px;
   }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+  input[type="text"] {
+    width: 60%;
   }
-  
-  .weather-card {
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    text-align: center;
-    width: 100%;
-    max-width: 450px;
-    transition: all 0.3s ease;
-    overflow: hidden;
+
+  button {
+    padding: 6px 8px;
+    font-size: 12px; /* Smaller font for compact view */
   }
-  
-  .weather-card h1 {
-    font-size: 2.5rem;
-    color: #0277bd;
-    margin-bottom: 10px;
-    font-weight: 700;
+
+  .weather-dashboard {
+    padding: 25px;
   }
-  
-  .weather-card p {
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    margin-bottom: 30px;
-  }
-  
-  #weather-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  #weather-form input {
-    width: 80%;
-    padding: 15px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-  }
-  
-  #weather-form input:focus {
-    outline: none;
-    box-shadow: 0 4px 12px rgba(0,123,255,0.5);
-  }
-  
-  #weather-form button {
-    padding: 12px 30px;
-    background-color: #0277bd;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-left: 15px;
-    transition: background-color 0.3s ease;
-  }
-  
-  #weather-form button:hover {
-    background-color: #01579b;
-  }
-  
-  .weather-result {
-    display: none;
-    margin-top: 20px;
-  }
-  
-  .weather-result h2 {
-    font-size: 1.7rem;
-    margin-bottom: 10px;
-    color: #0277bd;
-  }
-  
-  .weather-result p {
-    font-size: 1.2rem;
-    margin: 10px 0;
-    color: #616161;
-  }
-  
-  .weather-result .temp {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #0277bd;
-  }
-  
-  .weather-result .humidity,
-  .weather-result .wind-speed {
-    font-size: 1.1rem;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 1.1rem;
-    margin-top: 20px;
-    font-weight: 500;
-  }
-  
-  /* Responsive styling for mobile devices */
-  @media (max-width: 600px) {
-    .weather-card {
-      max-width: 100%;
-      padding: 20px;
-    }
-  
-    #weather-form input {
-      width: 65%;
-      margin-bottom: 15px;
-    }
-  
-    #weather-form button {
-      width: 30%;
-      margin-left: 5px;
-    }
-  
-    .weather-result h2 {
-      font-size: 1.5rem;
-    }
-  
-    .weather-result .temp {
-      font-size: 2rem;
-    }
-  }
-  
+}
