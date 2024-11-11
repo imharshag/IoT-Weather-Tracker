@@ -15,7 +15,7 @@ app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your_default_secret_key')
 cred = credentials.Certificate('firebase-service-account.json')
 firebase_admin.initialize_app(cred)
 
-API_KEY = 'c3d785b87a51fdaadc43ddc144ce5e6f'
+WEATHER_KEY = os.getenv('WEATHER_KEY')
 BASE_URL = 'http://api.openweathermap.org/data/2.5/weather'
 
 # Firebase Authentication REST API endpoint
