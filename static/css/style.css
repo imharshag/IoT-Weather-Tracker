@@ -1,177 +1,246 @@
-:root {
-  --primary-color: #ff4757; /* Vibrant Red */
-  --secondary-color: #1e90ff; /* Bright Blue */
-  --background-color: rgba(30, 30, 30, 0.9); /* Slightly more opaque background for better visibility */
-  --text-color: #ffffff; /* Pure white for text */
-  --text-color-light: #f0f0f0; /* Light gray for secondary text */
-  --border-color: rgba(255, 255, 255, 0.2); /* Soft white for borders */
-  --error-color: #ff6b81; /* Soft red for error messages */
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-  font-family: 'Roboto', sans-serif; /* Modern font */
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: url('https://img.freepik.com/free-vector/wavy-colorful-background-vector_677411-2087.jpg?t=st=1731323575~exp=1731327175~hmac=f806e9915af3ed37f1788dee50a29fb2ff3dd421b4c38cd2423b80d5911f09c1&w=1380') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
-  overflow: hidden;
+  align-items: flex-start;
+  padding-top: 2rem;
 }
 
 .container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background: rgba(23, 23, 23, 0.6);
+    color: #fff;
+    padding: 2rem;
+    width: 40%;
+    margin: 4rem auto;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.weather-dashboard {
-  background: var(--background-color);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-color);
+.weather__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
 }
 
-.city-name {
-  font-size: 28px;
-  color: var(--text-color);
-  margin-bottom: 15px;
-  font-weight: 600;
-  text-transform: uppercase; /* For a more modern feel */
+.weather__search {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
 }
 
-.weather-info {
-  margin-bottom: 20px;
+.weather__searchform {
+    flex-grow: 1;
+    border: none;
+    background: #1e1e1e;
+    outline: none;
+    color: #fff;
+    padding: 0.5rem 2.5rem;
+    border-radius: 5px;
 }
 
-.temp-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.weather__search i {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 18px;
+    color: #fff;
 }
 
-.temp-main h2 {
-  font-size: 70px;
-  color: var(--text-color);
-  margin: 0;
+.weather__button {
+    border: none;
+    background: #1e1e1e;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.temp-main p {
-  font-size: 20px;
-  color: var(--text-color-light);
-  margin-top: 10px;
+.weather__button:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
 }
 
-.temp-main img {
-  width: 80px; /* Slightly larger for emphasis */
-  height: 80px;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  object-fit: cover;
+/* Search Button Hover */
+.weather__button#fetch-weather:hover {
+    box-shadow: 0 0 15px 2px #fff; /* White shadow for search button */
+    background: #333; /* Darker background on hover */
 }
 
-.additional-info {
-  border-top: 1px solid var(--border-color);
-  padding-top: 15px;
-  color: var(--text-color-light);
+#fetch-weather i {
+    margin-right: 8px;
 }
 
-.additional-info p {
-  font-size: 14px; /* Slightly larger for better readability */
-  margin-bottom: 8px;
+/* Logout Button Hover */
+.weather__button#logout-btn:hover {
+    box-shadow: 0 0 15px 2px red; /* Red shadow for logout button */
+    background: #333; /* Darker background on hover */
 }
 
-.input-box {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+#logout-btn {
+    background: #1e1e1e;
 }
 
-input[type="text"] {
-  width: 70%;
-  padding: 12px 20px;
-  border-radius: 25px;
-  border: 1px solid var(--border-color);
-  background-color: var(--input-background-color); /* Ensure contrast */
-  color: var(--text-color); /* Text color should contrast with background */
-  font-size: 16px;
-  margin-right: 10px;
-  transition: box-shadow 0.3s, width 0.3s;
+#logout-btn:hover {
+    background: #333;
 }
 
-input[type="text"]:focus {
-  outline: none;
-  box-shadow: 0 0 5px var(--primary-color);
-  width: 75%;
+.weather__body {
+    text-align: center;
+    margin-top: 3rem;
 }
 
-button {
-  padding: 12px 15px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color)); /* Gradient effect */
-  background-size: 200%; /* Ensures gradient covers the full width */
-  border-radius: 25px;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background-position 0.5s ease, transform 0.2s; /* Smooth background animation */
+.weather__datetime {
+    margin-bottom: 2rem;
+    font-size: 14px;
 }
 
-button:hover {
-  background-position: 100%; /* Moves the gradient to create flow effect */
-  transform: translateY(-2px); /* Subtle lift effect */
+.weather__icon img {
+    width: 100px;
 }
 
-button img {
-  width: 30px;
-  height: 30px;
-  vertical-align: middle;
+.weather__temperature {
+    font-size: 1.75rem;
 }
 
-.error-message {
-  color: var(--error-color);
-  font-size: 15px;
-  margin-top: 15px;
-  opacity: 0.8; /* Slightly more visible */
-  transition: opacity 0.3s;
+.weather__minmax {
+    display: flex;
+    justify-content: center;
 }
 
-.show-error {
-  opacity: 1;
+.weather__minmax p {
+    font-size: 14px;
+    margin: 0.5rem;
 }
 
-@media (max-width: 600px) {
-  .temp-main h2 {
-    font-size: 50px;
-  }
+.weather__info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-top: 3rem;
+}
 
-  .additional-info p {
-    font-size: 12px;
-  }
+.weather__card {
+    display: flex;
+    align-items: center;
+    background: #1e1e1e;
+    padding: 1rem;
+    border-radius: 10px;
+}
 
-  input[type="text"] {
-    width: 60%;
-  }
+.weather__card i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
 
-  button {
-    padding: 6px 8px;
-    font-size: 12px; /* Smaller font for compact view */
-  }
+.weather__card p {
+    font-size: 14px;
+}
 
-  .weather-dashboard {
-    padding: 25px;
-  }
+input::placeholder {
+    color: #fff;
+    opacity: 1;
+}
+
+input:focus::placeholder {
+    color: #fff;
+}
+
+/* Media Queries */
+@media(max-width: 936px) {
+    .container {
+        width: 80%;
+    }
+
+    .weather__header {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .weather__search {
+        margin-bottom: 1rem;
+    }
+
+    .weather__button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .weather__units {
+        margin-top: 1rem;
+    }
+}
+
+@media(max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .weather__header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .weather__searchform {
+        margin-bottom: 1rem;
+    }
+
+    .weather__button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .weather__info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 400px) {
+    .weather__info {
+        grid-template-columns: none;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .weather__header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .weather__searchform {
+        margin-bottom: 1rem;
+    }
+
+    .weather__button {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 1rem;
+    }
 }

@@ -1,39 +1,87 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Weather Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://kit.fontawesome.com/a692e1c39f.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
-        <div class="weather-dashboard glass-effect">
-            <h1 class="city-name">Weather in <span id="city">--</span>, <span id="country">--</span></h1>
-            <div class="weather-info">
-                <div class="temp-main">
-                    <h2 id="temp">--°C</h2>
-                    <p id="description">--</p>
-                    <img id="weather-icon" src="/static/images/sun.png" alt="Weather Icon" />
-                </div>
-                <div class="additional-info">
-                    <p><strong>Feels Like:</strong> <span id="feels-like">--°C</span></p>
-                    <p><strong>Min/Max:</strong> <span id="temp-min">--°C</span> / <span id="temp-max">--°C</span></p>
-                    <p><strong>Humidity:</strong> <span id="humidity">--%</span></p>
-                    <p><strong>Wind:</strong> <span id="wind-speed">-- m/s</span></p>
-                    <p><strong>Cloud Coverage:</strong> <span id="cloud-coverage">--%</span></p>
-                </div>
+        <div class="weather__header">
+            <form class="weather__search">
+                <input type="text" id="city-input" placeholder="Enter a city...." class="weather__searchform">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </form>
+            <button id="fetch-weather" class="weather__button">Search</button>
+            <button id="logout-btn" class="weather__button">Logout</button>
+        </div>                  
+
+        <div class="weather__body">
+            <h1 class="weather__city" id="city">City...</h1>
+            <div class="weather__datetime"></div>
+            <div class="weather__icon">
+                <img id="weather-icon" src="/static/images/sun.png" alt="Weather icon">
             </div>
-            <div class="error-message" id="error-message"></div>
-            <div class="input-box">
-                <input type="text" id="city-input" placeholder="Enter city name" />
-                <button id="fetch-weather"> 
-                    <img src="https://img.icons8.com/ios-filled/50/000000/search.png" id="search-icon" alt="Get Weather" />
-                </button>
+            <p class="weather__temperature" id="temp">--°C</p>
+            <p id="description" class="weather__description">Weather description</p>
+            <div class="weather__minmax">
+                <p>Min Temp: <span id="temp-min">--°C</span></p>
+                <p>Max Temp: <span id="temp-max">--°C</span></p>
             </div>
         </div>
+
+        <div class="weather__info">
+            <div class="weather__card">
+                <i class="fa-solid fa-temperature-half"></i>
+                <div>
+                    <p>Feels Like</p>
+                    <p id="feels-like">--°C</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-droplet"></i>
+                <div>
+                    <p>Humidity</p>
+                    <p id="humidity">--%</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-wind"></i>
+                <div>
+                    <p>Wind Speed</p>
+                    <p id="wind-speed">-- m/s</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-cloud"></i>
+                <div>
+                    <p>Cloud Coverage</p>
+                    <p id="cloud-coverage">--%</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-sun"></i>
+                <div>
+                    <p>Sunrise</p>
+                    <p id="sunrise">--</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-moon"></i>
+                <div>
+                    <p>Sunset</p>
+                    <p id="sunset">--</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="error-message"></div>
     </div>
-    <script src="/static/js/script.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
