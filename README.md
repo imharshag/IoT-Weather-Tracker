@@ -9,7 +9,7 @@ A modern, minimalistic weather dashboard that provides real-time weather informa
 - **Minimalistic UI**: Designed with a clean, modern aesthetic.
 
 ### Live Demo 🌐
-Check out the [live view here](https://weatheriot.vercel.app/).
+Check out the [live view here](https://atmoslot.vercel.app/).
 
 ### Download and Install Dependencies 📦 
 
