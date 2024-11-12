@@ -81,7 +81,7 @@ def get_weather(city):
     if 'user_id' not in session:
         return jsonify({'error': 'Unauthorized'}), 401
     try:
-        url = f"{BASE_URL}?q={city}&appid={API_KEY}&units=metric"
+        url = f"{BASE_URL}?q={city}&appid={WEATHER_KEY}&units=metric"
         response = requests.get(url)
         data = response.json()
 
