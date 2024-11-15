@@ -15,7 +15,7 @@ app.secret_key = os.getenv('FLASK_SECRET_KEY', 'your_default_secret_key')
 cred = credentials.Certificate('firebase-service-account.json')
 firebase_admin.initialize_app(cred)
 
-WEATHER_KEY = os.getenv('WEATHER_KEY')
+API_KEY = 'c3d785b87a51fdaadc43ddc144ce5e6f'
 BASE_URL = 'http://api.openweathermap.org/data/2.5/weather'
 
 # Firebase Authentication REST API endpoint
@@ -81,7 +81,7 @@ def get_weather(city):
     if 'user_id' not in session:
         return jsonify({'error': 'Unauthorized'}), 401
     try:
-        url = f"{BASE_URL}?q={city}&appid={WEATHER_KEY}&units=metric"
+        url = f"{BASE_URL}?q={city}&appid={API_KEY}&units=metric"
         response = requests.get(url)
         data = response.json()
 
