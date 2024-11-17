@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - AtmoSlot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/notification.css') }}">
+</head>
+<body>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+    <!-- Background Shapes -->
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <form method="POST" action="{{ url_for('register') }}">
+        <h3>Register here</h3>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email" required>
+        
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password" required>
+        
+        <button type="submit">Register</button>
+        <p class="signup-link">
+            Already have an account? <a href="{{ url_for('login') }}">Login</a>
+        </p>        
+    </form>
+
+    <script src="{{ url_for('static', filename='js/auth.js') }}" defer></script>
+
+</body>
+</html>

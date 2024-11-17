@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtmoSlot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/notification.css') }}">
+    <script src="https://kit.fontawesome.com/a692e1c39f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        <div class="weather__header">
+            <form class="weather__search">
+                <div class="search-container">
+                    <input type="text" id="city-input" placeholder="Enter a city...." class="weather__searchform">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                </div>
+            </form>
+            <div class="weather__buttons">
+                <button id="fetch-weather" class="weather__button">Search</button>
+                <button id="logout-btn" class="weather__button">Logout</button>
+            </div>
+        </div>                  
+
+        <div class="weather__body">
+            <h1 class="weather__city" id="city">City...</h1>
+            <div class="weather__datetime"></div>
+            <div class="weather__icon">
+                <img id="weather-icon" src="/static/images/sun.png" alt="Weather icon">
+            </div>
+            <p class="weather__temperature" id="temp">°C</p>
+            <p id="description" class="weather__description">Weather description</p>
+            <div class="weather__minmax">
+                <p>Min Temp: <span id="temp-min">°C</span></p>
+                <p>Max Temp: <span id="temp-max">°C</span></p>
+            </div>
+        </div>
+
+        <div class="weather__info">
+            <div class="weather__card">
+                <i class="fa-solid fa-temperature-half"></i>
+                <div>
+                    <p>Feels Like 🌡️</p>
+                    <p id="feels-like">°C</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-droplet"></i>
+                <div>
+                    <p>Humidity 💧</p>
+                    <p id="humidity">%</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-wind"></i>
+                <div>
+                    <p>Wind Speed 🍃</p>
+                    <p id="wind-speed"> m/s</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-cloud"></i>
+                <div>
+                    <p>Cloud Coverage ☁️</p>
+                    <p id="cloud-coverage">%</p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-sun"></i>
+                <div>
+                    <p>Sunrise 🌅</p>
+                    <p id="sunrise"></p>
+                </div>
+            </div>
+            <div class="weather__card">
+                <i class="fa-solid fa-moon"></i>
+                <div>
+                    <p>Sunset 🌙</p>
+                    <p id="sunset"></p>
+                </div>
+            </div>
+        </div>        
+
+        <!-- Error Message -->
+        <div id="error-message" class="error-message"></div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/auth.js') }}" defer></script>
+</body>
+</html>
