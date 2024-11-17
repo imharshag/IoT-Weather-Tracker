@@ -73,3 +73,8 @@ document.getElementById('fetch-weather').addEventListener('click', function() {
         errorMessageElement.classList.add('show-error');
     }
 });
+
+
+
+
+

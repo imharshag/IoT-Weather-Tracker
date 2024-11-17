@@ -111,6 +111,26 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+.flash-messages {
+    margin: 20px 0;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.alert-success {
+    background-color: #28a745;
+}
+
+.alert-error {
+    background-color: #dc3545;
+}
+
 
 /* Button Hover Effect */
 button:hover {
