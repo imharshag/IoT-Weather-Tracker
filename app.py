@@ -88,13 +88,12 @@ def logout():
     flash('You have been logged out.', 'info')  # Optionally add a flash message
     return jsonify({'success': True})  # Respond with success to trigger the front-end action
 
-
-
 @app.route('/api/weather/<city>')
 def get_weather(city):
     if 'user_id' not in session:
+        flash('You need to log in to access weather data.', 'danger')
         return jsonify({'error': 'Unauthorized'}), 401
-
+       
     try:
         url = f"{BASE_URL}?q={city}&appid={WEATHER_KEY}&units=metric"
         response = requests.get(url)
@@ -125,8 +124,13 @@ def get_weather(city):
 
             return jsonify(weather_data)
         else:
-            return jsonify({'error': 'City not found or API call failed'}), 400
+            # Flash message for invalid city or API failure
+            flash('City not found or API call failed.', 'warning')
+            return jsonify({'error': 'City not found or API call failed.'}), 400
+        
     except Exception as e:
+        # Flash message for unexpected errors
+        flash(f'An unexpected error occurred: {str(e)}', 'warning')
         return jsonify({'error': str(e)}), 500
 
 def send_weather_email(to_email, weather_data):
