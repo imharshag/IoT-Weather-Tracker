@@ -1,42 +1,57 @@
 # Weather Dashboard 🌤️
 
-A modern, minimalistic weather dashboard that provides real-time weather information based on the user's input city. This project uses the OpenWeatherMap API for weather data and features a sleek UI with dynamic updates and error handling.
+This project is a **Weather App** built using `Flask` and integrated with `Firebase` for authentication and `Google Apps` for email notification services. The app is deployed on **Vercel**, offering a seamless and live weather experience.
 
-### Features 🚀
-- **Real-time Weather Data**: Fetches live weather data, including temperature, humidity, wind speed, and cloud coverage.
-- **Responsive Design**: Optimized for both desktop and mobile screens.
-- **Error Handling**: Displays user-friendly error messages for invalid cities or API issues.
-- **Minimalistic UI**: Designed with a clean, modern aesthetic.
+### 🚀 Features
+- 🔒 **User Authentication** with Firebase.
+- 📧 **Email Notifications** for weather alerts via Google Apps.
+- 🌍 **Live Weather Updates** fetched dynamically.
+- 🎨 **Responsive UI** for a modern user experience.
+- 🌐 **Hosted on Vercel** for global availability.
 
-### Live Demo 🌐
-Check out the [live view here](https://atmoslot.vercel.app/).
+### 🛠️ Tech Stack
+- **Backend**: Flask
+- **Authentication**: Firebase
+- **Email Service**: Google Apps
+- **Weather Data**: OpenWeather API
+- **Hosting**: Vercel
 
-### Download and Install Dependencies 📦 
+### ⚠️ Setup Reminder
+- Obtain an API key from **[OpenWeather](https://openweathermap.org/api)**.
+- Set up your **Firebase project** and obtain your API credentials.
+- Add these keys to your environment variables or `config.py` file.
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/weather-dashboard.git
-    ```
-2. Navigate into the project directory:
-    ```bash
-    cd weather-dashboard
-    ```
-3. Install necessary dependencies.
+### 📸 Live View
+👉 **[Check it out here!](https://cloudish.vercel.app/)**
 
-4. Sign up on OpenWeather to get an API key for fetching real-time weather data.
-    - Create an .env file or update script.js with your API key where needed.
 
-5. Run Locally, Start the server and navigate to http://localhost:8000 to see the dashboard.
+### ⚙️ Setup Instructions
 
-### Usage 🖥️
+Clone the repository
+  
+        git clone https://github.com/imharshag/IoT-Weather-Tracker.git
 
-1. Open the project in your preferred browser.
-2. Enter the name of the city you want the weather for.
-3. View the live weather details or an error message if the city is invalid.
+ Navigate to the project directory
+    
+        cd IoT-Weather-Tracker
 
-### Contributing 🤝
+Create a .env file in the project root and add the following:
+    
+    WEATHER_KEY=your_openweather_api_key
+    FIREBASE_API_KEY=your_firebase_api_key
+    SENDER_EMAIL=your_email@example.com
+    SENDER_PASSWORD=your_email_password
 
-Feel free to open issues or submit pull requests for improvements. All contributions are welcome!
+Install dependencies
+    
+    pip install -r requirements.txt
+
+Run the Flask app
+    
+    python app.py
+
+### 🌟 Contributions are Welcome!
+Feel free to fork this repository, open issues, or submit pull requests to improve the app!
 
 ### License
 This project is licensed under the MIT License.
