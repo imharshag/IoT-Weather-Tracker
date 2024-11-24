@@ -42,6 +42,9 @@ Create a .env file in the project root and add the following:
     SENDER_EMAIL=your_email@example.com
     SENDER_PASSWORD=your_email_password
 
+    
+ This ensures all API keys and sensitive information are securely stored in the `.env` file.
+
 Install dependencies
     
     pip install -r requirements.txt
